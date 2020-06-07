@@ -9,11 +9,12 @@ namespace Application
             var network = new Network(request.HiddenNodesNumber, request.InputsValues, request.OutputsValues);
             network.InitWeights();
             network.Training();
-            var otherService = new WriteWeightsService();
-            otherService.Ejecute(new WriteWeightsRequest()
+            var saveWeightsService = new WriteWeightsService();
+            saveWeightsService.Ejecute(new WriteWeightsRequest()
             {
                 HiddenToOutputWeights = network.HiddenToOutputsWeights,
-                InputToHiddenWeights = network.InputsToHiddenWeights
+                InputToHiddenWeights = network.InputsToHiddenWeights,
+                FileName = request.FileName
             });
             return new TrainNetworkResponse(){Network = network};
         }
@@ -24,6 +25,7 @@ namespace Application
         public int HiddenNodesNumber { get; set; }
         public double[,] InputsValues { get; set; }
         public double[] OutputsValues { get; set; }
+        public string FileName { get; set; }
     }
 
     public class TrainNetworkResponse

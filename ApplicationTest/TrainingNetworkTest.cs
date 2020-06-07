@@ -1,3 +1,4 @@
+using System;
 using Application;
 using NUnit.Framework;
 
@@ -11,7 +12,7 @@ namespace ApplicationTest
         }
 
         [Test]
-        public void TrainingNetworkTest()
+        public void TrainingNetworkGripeTest()
         {
             var service = new TrainNetworkService();
             var inputs = new double[,]{
@@ -20,8 +21,129 @@ namespace ApplicationTest
                 {1,	1, 1, 0, 1, 1, 0, 1, 0}, 
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}}; 
             var outputs = new double[]{1 ,1, 1, 0};
-            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs});
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "GripeWeights"});
             Assert.Pass();
         }
+        
+        [Test]
+        public void TrainingNetworkResfriadoComunTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1, 1}, 
+                {0,	1, 0, 1, 0, 1, 1}, 
+                {1,	0, 1, 0, 1, 0, 1}, 
+                {1, 1, 1, 1, 1, 0, 1},
+                {1, 1, 1, 1, 1, 1, 0},
+                {0, 0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "ResfriadoComunWeights"});
+            Assert.Pass();
+        }
+        
+        [Test]
+        public void TrainingNetworkRinitisTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1}, 
+                {1, 1, 1, 1, 1, 0}, 
+                {1, 1, 1, 1, 0, 0}, 
+                {1, 1, 1, 1, 1, 0},
+                {1, 0, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 1}, 
+                {1, 1, 0, 0, 1, 1},
+                {0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "RinitisWeights"});
+            Assert.Pass();
+        }
+        
+        [Test]
+        public void TrainingNetworkRinosinitisTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1, 1, 1}, 
+                {1, 1, 1, 1, 1, 1, 1, 0}, 
+                {1, 1, 1, 1, 1, 1, 0, 0}, 
+                {0, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "RinosinitisWeights"});
+            Assert.Pass();
+        }
+        
+        [Test]
+        public void TrainingNetworkFaringitisTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1, 1, 1}, 
+                {1, 1, 1, 1, 1, 1, 1, 0}, 
+                {1, 1, 1, 1, 1, 1, 0, 0}, 
+                {0, 0, 0, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 0, 0, 0},
+                {0, 0, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "FaringitisWeights"});
+            Assert.Pass();
+        }
+        
+        [Test]
+        public void TrainingNetworkAmigdalitisTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1, 1, 1, 1}, 
+                {0, 1, 1, 1, 1, 1, 1, 1, 1}, 
+                {0, 0, 1, 1, 1, 1, 1, 1, 1}, 
+                {0, 0, 0, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "AmigdalitisWeights"});
+            Assert.Pass();
+        }
+        
+        [Test]
+        public void TrainingNetworkBronquitisTest()
+        {
+            var service = new TrainNetworkService();
+            var inputs = new double[,]{
+                {1, 1, 1, 1, 1, 1, 1, 1}, 
+                {0, 1, 1, 1, 1, 1, 1, 1}, 
+                {0, 0, 1, 1, 1, 1, 1, 1}, 
+                {0, 0, 0, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0}
+            }; 
+            var outputs = new double[]{1 ,1, 1, 1, 0};
+            service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "BronquitisWeights"});
+            Assert.Pass();
+        }
+
+        /*[Test]
+        public void ReadWeighstGripeTest()
+        {
+            var service = new ReadWeightsService();
+            var response = service.Ejecute(new ReadWeightsRequest() { Inputs = 9, FileName = "PesosEnfermedad01"});
+            Console.WriteLine("Pesos entrada - oculta");
+            foreach (var responseInputToHiddenWeight in response.InputToHiddenWeights)
+            {
+                Console.WriteLine(responseInputToHiddenWeight);
+            }
+            Console.WriteLine("Pesos oculta - salida");
+            foreach (var responseHiddenToOutputWeight in response.HiddenToOutputWeights)
+            {
+                Console.WriteLine(responseHiddenToOutputWeight);
+            }
+        }*/
     }
 }

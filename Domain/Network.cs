@@ -18,6 +18,7 @@ namespace Domain
         public double Error;
         public Node[] HiddenNodes;
         public Node[] OutputNodes;
+        public double roundedOutput = 0.0;
         public const double LearningRate = 0.06;
 
         public Network(int hiddenNodesNumber, double[,] inputsValues, double[] outputsValues)
@@ -25,6 +26,21 @@ namespace Domain
             HiddenNodesNumber = hiddenNodesNumber;
             InputsValues = inputsValues;
             OutputsValues = outputsValues;
+            Inputs = InputsValues.GetLength(1);
+            Outputs = 1;
+            HiddenLayers = 1;
+            InputsToHiddenWeights = new double[Inputs,HiddenNodesNumber];
+            HiddenToOutputsWeights = new double[HiddenNodesNumber];
+            HiddenBiases = new double[HiddenNodesNumber];
+            OutputsBiases = new double[InputsValues.GetLength(1)];
+            HiddenNodes = new Node[HiddenNodesNumber];
+            OutputNodes = new Node[InputsValues.GetLength(0)];
+        }
+
+        public Network(int hiddenNodesNumber, double[,] inputsValues)
+        {
+            HiddenNodesNumber = hiddenNodesNumber;
+            InputsValues = inputsValues;
             Inputs = InputsValues.GetLength(1);
             Outputs = 1;
             HiddenLayers = 1;
@@ -94,6 +110,8 @@ namespace Domain
             }
             OutputNodes[pattern].Input += OutputsBiases[0] * 1;
             OutputNodes[pattern].Output = (1 / (1 + Math.Pow(Math.E, -1*OutputNodes[pattern].Input)));
+            roundedOutput = Math.Round(OutputNodes[pattern].Output);
+
             #endregion
         }
 

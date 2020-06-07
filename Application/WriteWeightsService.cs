@@ -6,7 +6,7 @@ namespace Application
     {
         public WriteWeightsResponse Ejecute(WriteWeightsRequest request)
         {
-            var fileToWrite = new StreamWriter("D:\\Weights\\PesosEnfermedad01.txt");
+            var fileToWrite = new StreamWriter($"D:\\Weights\\{request.FileName}.txt");
             
             for (int input = 0; input < request.InputToHiddenWeights.GetLength(0); input++)
             {
@@ -35,6 +35,7 @@ namespace Application
     {
         public double[,] InputToHiddenWeights { get; set; }
         public double[] HiddenToOutputWeights { get; set; }
+        public string FileName { get; set; }
     }
 
     public class WriteWeightsResponse
