@@ -19,9 +19,9 @@ namespace DomainTest
                 {1,	1, 1, 0, 1, 1, 0, 1, 0}, 
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}}; 
             var outputs = new double[]{1 ,1, 1, 0};
-            Network network = new Network(20, inputs, outputs);
-            network.InitWeights();
-            network.Training();
+            Red red = new Red(20, inputs, outputs);
+            red.InicializarPesos();
+            red.Entrenamiento();
             Assert.Pass();
         }
     }

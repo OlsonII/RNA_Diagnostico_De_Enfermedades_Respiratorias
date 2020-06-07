@@ -4,7 +4,9 @@
     &lt;ProjectFile&gt;86AEC443-5458-4FF2-8D88-08C0DF6FDD23/f:TrainingNetworkTest.cs&lt;/ProjectFile&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;NUnit3x::86AEC443-5458-4FF2-8D88-08C0DF6FDD23::.NETCoreApp,Version=v3.1::ApplicationTest.DiagnosticoGripeTest.NetworkGripe&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::86AEC443-5458-4FF2-8D88-08C0DF6FDD23::.NETCoreApp,Version=v3.1::ApplicationTest.DiagnosticoNetworkTest.DiagnosticoNetworkGripe&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;ProjectFile&gt;86AEC443-5458-4FF2-8D88-08C0DF6FDD23/f:DiagnosticoGripeTest.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;86AEC443-5458-4FF2-8D88-08C0DF6FDD23/f:DiagnosticosNetworkTest.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

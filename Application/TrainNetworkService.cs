@@ -6,17 +6,17 @@ namespace Application
     {
         public TrainNetworkResponse Ejecute(TrainNetworkRequest request)
         {
-            var network = new Network(request.HiddenNodesNumber, request.InputsValues, request.OutputsValues);
-            network.InitWeights();
-            network.Training();
+            var network = new Red(request.HiddenNodesNumber, request.InputsValues, request.OutputsValues);
+            network.InicializarPesos();
+            network.Entrenamiento();
             var saveWeightsService = new WriteWeightsService();
             saveWeightsService.Ejecute(new WriteWeightsRequest()
             {
-                HiddenToOutputWeights = network.HiddenToOutputsWeights,
-                InputToHiddenWeights = network.InputsToHiddenWeights,
+                HiddenToOutputWeights = network.PesosOcultaASalida,
+                InputToHiddenWeights = network.PesosEntradaAOculta,
                 FileName = request.FileName
             });
-            return new TrainNetworkResponse(){Network = network};
+            return new TrainNetworkResponse(){Red = network};
         }
     }
 
@@ -30,6 +30,6 @@ namespace Application
 
     public class TrainNetworkResponse
     {
-        public Network Network { get; set; }
+        public Red Red { get; set; }
     }
 }
