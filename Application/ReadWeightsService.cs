@@ -13,8 +13,8 @@ namespace Application
             
             var file = new StreamReader($"D:\\Weights\\{request.FileName}.txt");
             var response = new ReadWeightsResponse();
-            response.InputToHiddenWeights = new double[request.Inputs, 20];
-            response.HiddenToOutputWeights = new double[20];
+            response.PesosCapaOculta = new double[20, request.Inputs];
+            response.PesosSalida = new double[20];
             response.UmbralesCapaOculta = new double[20];
             response.UmbralSalida = 0.0;
             var input = 0;
@@ -24,21 +24,21 @@ namespace Application
             {
                 if (!line.Equals("---"))
                 {
-                    if (input < request.Inputs)
+                    if (input < 20)
                     {
                         var numbers = line.Split(" | ");
-                        for (var i = 0; i < 20; i++)
+                        for (var i = 0; i < numbers.Length; i++)
                         {
-                            if (numbers[i] != " | " && numbers[i] != "")
+                            if (numbers[i] != "")
                             {
-                                response.InputToHiddenWeights[input, i] = double.Parse(numbers[i]);
+                                response.PesosCapaOculta[input,i] = double.Parse(numbers[i]);
                             }
                         }
                         input++;
                     }
                     else if(hidden < 20)
                     {
-                        response.HiddenToOutputWeights[hidden] = double.Parse(line);
+                        response.PesosSalida[hidden] = double.Parse(line);
                         hidden++;
                     }
                     else if(hidden < 40)
@@ -65,8 +65,8 @@ namespace Application
 
     public class ReadWeightsResponse
     {
-        public double[,] InputToHiddenWeights { get; set; }
-        public double[] HiddenToOutputWeights { get; set; }
+        public double[,] PesosCapaOculta { get; set; }
+        public double[] PesosSalida { get; set; }
         public double[] UmbralesCapaOculta { get; set; }
         public double UmbralSalida { get; set; }
     }

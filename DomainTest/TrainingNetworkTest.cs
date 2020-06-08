@@ -10,7 +10,7 @@ namespace DomainTest
         {
         }
 
-        [Test]
+        /*[Test]
         public void TestFoward()
         {
             var inputs = new double[,]{
@@ -23,6 +23,6 @@ namespace DomainTest
             red.InicializarPesos();
             red.Entrenamiento();
             Assert.Pass();
-        }
+        }*/
     }
 }

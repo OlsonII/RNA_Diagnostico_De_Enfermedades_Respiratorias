@@ -6,37 +6,43 @@ namespace Application
     {
         public TrainNetworkResponse Ejecute(TrainNetworkRequest request)
         {
-            var network = new Red(request.HiddenNodesNumber, request.InputsValues, request.OutputsValues);
-            var reader = new ReadWeightsService().Ejecute(new ReadWeightsRequest(){FileName = request.FileName, Inputs = request.InputsValues.GetLength(1)});
+            var red = new Red(request.InputsValues, request.OutputsValues);
+            var reader = new ReadWeightsService().Ejecute(new ReadWeightsRequest(){FileName = request.FileName, Inputs = request.InputsValues[0].Length});
             if (reader != null)
             {
-                network.PesosEntradaAOculta = reader.InputToHiddenWeights;
-                network.PesosOcultaASalida = reader.HiddenToOutputWeights;
-                network.UmbralesCapaOculta = reader.UmbralesCapaOculta;
-                network.UmbralesSalida[0] = reader.UmbralSalida;
+                for (var i = 0; i < red.NeuronasOcultas.Length; i++)
+                {
+                    for (var pesos = 0; pesos < red.NeuronasOcultas[i].Pesos.Length; pesos++)
+                    {
+                        red.NeuronasOcultas[i].Pesos[pesos] = reader.PesosCapaOculta[i, pesos];
+                    }
+                    red.NeuronasOcultas[i].Umbral = reader.UmbralesCapaOculta[i];
+                }
+                
+                red.NeuronaDeSalida.Pesos = reader.PesosSalida;
+                red.NeuronaDeSalida.Umbral = reader.UmbralSalida;
+                red.EstaEntrenada = true;
             }
             else
             {
-                network.InicializarPesos();
+                red.EstaEntrenada = false;
             }
-            network.Entrenamiento();
+            red.Entrenar();
             var saveWeightsService = new WriteWeightsService();
             saveWeightsService.Ejecute(new WriteWeightsRequest()
             {
-                HiddenToOutputWeights = network.PesosOcultaASalida,
-                InputToHiddenWeights = network.PesosEntradaAOculta,
-                UmbralesOculta = network.UmbralesCapaOculta,
-                UmbralSalida = network.UmbralesSalida[0],
+                CapaOculta = red.NeuronasOcultas,
+                NeuronaSalida = red.NeuronaDeSalida,
+                UmbralSalida = red.NeuronaDeSalida.Umbral,
                 FileName = request.FileName
             });
-            return new TrainNetworkResponse(){Red = network};
+            return new TrainNetworkResponse(){Red = red};
         }
     }
 
     public class TrainNetworkRequest
     {
-        public int HiddenNodesNumber { get; set; }
-        public double[,] InputsValues { get; set; }
+        public double[][] InputsValues { get; set; }
         public double[] OutputsValues { get; set; }
         public string FileName { get; set; }
     }
