@@ -8,6 +8,9 @@ namespace Application
 
         public ReadWeightsResponse Ejecute(ReadWeightsRequest request)
         {
+            if (!File.Exists($"D:\\Weights\\{request.FileName}.txt"))
+                return null;
+            
             var file = new StreamReader($"D:\\Weights\\{request.FileName}.txt");
             var response = new ReadWeightsResponse();
             response.InputToHiddenWeights = new double[request.Inputs, 20];

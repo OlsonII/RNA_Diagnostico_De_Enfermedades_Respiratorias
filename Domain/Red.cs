@@ -19,7 +19,7 @@ namespace Domain
         public Neurona[] NeuronasOcultas;
         public Neurona[] NeuronasSalida;
         public double SalidaRedondeada = 0.0;
-        public const double RataAprendizaje = 0.17;
+        public const double RataAprendizaje = 0.06;
 
         public Red(int numeroNeuronasOcultas, double[,] valoresEntrada, double[] valoresSalida)
         {
@@ -117,7 +117,7 @@ namespace Domain
 
         public void Entrenamiento()
         {
-            for (int iteracion = 0; iteracion < 50000; iteracion++)
+            for (int iteracion = 0; iteracion < 55000; iteracion++)
             {
                 Console.WriteLine($"************************Iteracion {iteracion}**********************************");
                 for (int patron = 0; patron < ValoresEntrada.GetLength(0); patron++)
@@ -132,7 +132,6 @@ namespace Domain
                     var dErrorWithOutputHidden = 0.0;
                     var dInputHiddenWithWeight = 0.0;
                     var dErrorWithWeight = 0.0;
-                    Console.WriteLine($"Valores entrada: {ValoresEntrada[patron,0]} - {ValoresEntrada[patron,1]}");
                     
                     FowardPass(patron);
 

@@ -7,7 +7,18 @@ namespace Application
         public TrainNetworkResponse Ejecute(TrainNetworkRequest request)
         {
             var network = new Red(request.HiddenNodesNumber, request.InputsValues, request.OutputsValues);
-            network.InicializarPesos();
+            var reader = new ReadWeightsService().Ejecute(new ReadWeightsRequest(){FileName = request.FileName, Inputs = request.InputsValues.GetLength(1)});
+            if (reader != null)
+            {
+                network.PesosEntradaAOculta = reader.InputToHiddenWeights;
+                network.PesosOcultaASalida = reader.HiddenToOutputWeights;
+                network.UmbralesCapaOculta = reader.UmbralesCapaOculta;
+                network.UmbralesSalida[0] = reader.UmbralSalida;
+            }
+            else
+            {
+                network.InicializarPesos();
+            }
             network.Entrenamiento();
             var saveWeightsService = new WriteWeightsService();
             saveWeightsService.Ejecute(new WriteWeightsRequest()
