@@ -25,13 +25,13 @@ namespace ApplicationTest
                 {0, 1, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 1, 0, 0, 0, 0},
                 {0, 0, 1, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},/*
                 {1, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {1, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 1, 1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 1, 1, 1, 1}}; 
-            var outputs = new double[]{1 ,1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                {0, 0, 0, 0, 0, 1, 1, 1, 1}*/}; 
+            var outputs = new double[]{1 ,1, 1, 0, 0, 0, 0, 0, 0, 0/*, 0, 0, 0, 0, 0*/};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "GripeWeights"});
             Assert.Pass();
         }
