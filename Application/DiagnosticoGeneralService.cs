@@ -24,234 +24,238 @@ namespace Application
         public DiagnosticoGeneralResponse Ejecute(DiagnosticoGeneralRequest request)
         {
             MapearSintomas(request.Sintomas);
-            return InicializarEnfermedades();
+            var enfermedades = InicializarEnfermedades();
+            return enfermedades;
         }
 
         private void MapearSintomas(int[] Sintomas)
         {
             for (var sintoma = 0; sintoma < Sintomas.Length; sintoma++)
             {
-                switch (sintoma)
+                if (Sintomas[sintoma] == 1)
                 {
-                    case 0:
-                        sintomasEnfisemaPulmonar[0,5] = 1;
-                        sintomasEPOC[0,8] = 1;
-                        break;
-                    case 1:
-                        sintomasAmigdalitis[0,8] = 1;
-                        break;
-                    case 2:
-                        sintomasGripe[0,2] = 1;
-                        sintomasResfriadoComun[0,0] = 1;
-                        sintomasRinitis[0,0] = 1;
-                        sintomasBronquitis[0,1] = 1;
-                        sintomasEnfisemaPulmonar[0,2] = 1;
-                        sintomasSinusitis[0,6] = 1;
-                        sintomasRinosinositis[0,1] = 1;
-                        break;
-                    case 3:
-                        sintomasCovid19[0,6] = 1;
-                        break;
-                    case 4:
-                        sintomasLaringitis[0,3] = 1;
-                        break;
-                    case 5:
-                        sintomasCovid19[0,5] = 1;
-                        break;
-                    case 6:
-                        sintomasFaringitis[0,0] = 1;
-                        sintomasAmigdalitis[0,3] = 1;
-                        sintomasFaringitis[0,6] = 1;
-                        break;
-                    case 7:
-                        sintomasBronquitis[0,3] = 1;
-                        sintomasEnfisemaPulmonar[0,0] = 1;
-                        sintomasAsma[0,4] = 1;
-                        sintomasNeumonia[0,6] = 1;
-                        sintomasEPOC[0,0] = 1;
-                        sintomasCovid19[0,10] = 1;
-                        break;
-                    case 8:
-                        sintomasFaringitis[0,3] = 1;
-                        break;
-                    case 9:
-                        sintomasGripe[0,6] = 1;
-                        sintomasResfriadoComun[0,2] = 1;
-                        sintomasRinosinositis[0,4] = 1;
-                        sintomasFaringitis[0,6] = 1;
-                        sintomasCancerDePulmon[0,7] = 1;
-                        sintomasSinusitis[0,4] = 1;
-                        break;
-                    case 10:
-                        sintomasResfriadoComun[0,6] = 1;
-                        sintomasRinosinositis[0,6] = 1;
-                        sintomasSinusitis[0,8] = 1;
-                        sintomasLaringitis[0,6] = 1;
-                        sintomasCovid19[0,4] = 1;
-                        break;
-                    case 11:
-                        sintomasFaringitis[0,5] = 1;
-                        break;
-                    case 12:
-                        sintomasNeumonia[0,0] = 1;
-                        sintomasCancerDePulmon[0,4] = 1;
-                        sintomasCovid19[0,8] = 1;
-                        break;
-                    case 13:
-                        sintomasCancerDePulmon[0,6] = 1;
-                        break;
-                    case 14:
-                        sintomasFaringitis[0,4] = 1;
-                        break;
-                    case 15:
-                        sintomasSinusitis[0,5] = 1;
-                        break;
-                    case 16:
-                        sintomasGripe[0,1] = 1;
-                        sintomasFaringitis[0,4] = 1;
-                        sintomasLaringitis[0,7] = 1;
-                        break;
-                    case 17:
-                        sintomasRinosinositis[0,0] = 1;
-                        break;
-                    case 18:
-                        sintomasGripe[0,5] = 1;
-                        sintomasBronquitis[0,5] = 1;
-                        sintomasNeumonia[0,3] = 1;
-                        break;
-                    case 19:
-                        sintomasGripe[0,7] = 1;
-                        sintomasResfriadoComun[0,5] = 1;
-                        sintomasRinitis[0,2] = 1;
-                        break;
-                    case 20:
-                        sintomasEPOC[0,3] = 1;
-                        break;
-                    case 21:
-                        sintomasAsma[0,0] = 1;
-                        sintomasCancerDePulmon[0,2] = 1;
-                        break;
-                    case 22:
-                        sintomasGripe[0,8] = 1;
-                        sintomasRinosinositis[0,3] = 1;
-                        sintomasEnfisemaPulmonar[0,3] = 1;
-                        sintomasBronquitis[0,2] = 1;
-                        sintomasNeumonia[0,1] = 1;
-                        sintomasSinusitis[0,3] = 1;
-                        sintomasEPOC[0,5] = 1;
-                        sintomasCovid19[0,2] = 1;
-                        break;
-                    case 23:
-                        sintomasGripe[0,0] = 1;
-                        sintomasResfriadoComun[0,1] = 1;
-                        sintomasRinosinositis[0,5] = 1;
-                        sintomasFaringitis[0,1] = 1;
-                        sintomasBronquitis[0,4] = 1;
-                        sintomasNeumonia[0,2] = 1;
-                        sintomasSinusitis[0,1] = 1;
-                        sintomasCovid19[0,0] = 1;
-                        break;
-                    case 24:
-                        sintomasAmigdalitis[0,0] = 1;
-                        break;
-                    case 25:
-                        sintomasEPOC[0,7] = 1;
-                        break;
-                    case 26:
-                        sintomasCovid19[0,9] = 1;
-                        break;
-                    case 27:
-                        sintomasEPOC[0,4] = 1;
-                        break;
-                    case 28:
-                        sintomasFaringitis[0,2] = 1;
-                        sintomasSinusitis[0,2] = 1;
-                        sintomasLaringitis[0,5] = 1;
-                        break;
-                    case 29:
-                        sintomasResfriadoComun[0,4] = 1;
-                        sintomasRinosinositis[0,4] = 1;
-                        sintomasCovid19[0,3] = 1;
-                        break;
-                    case 30:
-                        sintomasBronquitis[0,6] = 1;
-                        sintomasAsma[0,1] = 1;
-                        sintomasNeumonia[0,4] = 1;
-                        sintomasEPOC[0,2] = 1;
-                        break;
-                    case 31:
-                        break;
-                    case 32:
-                        sintomasRinitis[0,4] = 1;
-                        break;
-                    case 33:
-                        sintomasEnfisemaPulmonar[0,4] = 1;
-                        break;
-                    case 34:
-                        sintomasLaringitis[0,1] = 1;
-                        break;
-                    case 35:
-                        sintomasSinusitis[0,0] = 1;
-                        break;
-                    case 36:
-                        sintomasCancerDePulmon[0,5] = 1;
-                        sintomasEPOC[0,6] = 1;
-                        sintomasCovid19[0,7] = 1;
-                        break;
-                    case 37:
-                        sintomasFaringitis[0,1] = 1;
-                        break;
-                    case 38:
-                        sintomasRinitis[0,1] = 1;
-                        break;
-                    case 39:
-                        sintomasFaringitis[0,7] = 1;
-                        break;
-                    case 40:
-                        sintomasCancerDePulmon[0,3] = 1;
-                        sintomasLaringitis[0,0] = 1;
-                        break;
-                    case 41:
-                        sintomasFaringitis[0,6] = 1;
-                        sintomasLaringitis[0,4] = 1;
-                        break;
-                    case 42:
-                        sintomasAsma[0,2] = 1;
-                        sintomasEPOC[0,1] = 1;
-                        break;
-                    case 43:
-                        sintomasGripe[0,4] = 1;
-                        break;
-                    case 44:
-                        sintomasGripe[0,3] = 1;
-                        sintomasResfriadoComun[0,3] = 1;
-                        sintomasRinitis[0,3] = 1;
-                        sintomasBronquitis[0,0] = 1;
-                        sintomasEnfisemaPulmonar[0,1] = 1;
-                        sintomasCancerDePulmon[0,0] = 1;
-                        sintomasSinusitis[0,7] = 1;
-                        break;
-                    case 45:
-                        sintomasFaringitis[0,2] = 1;
-                        sintomasEPOC[0,9] = 1;
-                        break;
-                    case 46:
-                        sintomasCancerDePulmon[0,1] = 1;
-                        break;
-                    case 47:
-                        sintomasAsma[0,3] = 1;
-                        sintomasLaringitis[0,2] = 1;
-                        sintomasCovid19[0,1] = 1;
-                        break;
-                    case 48:
-                        sintomasNeumonia[0,5] = 1;
-                        break;
-                    case 49:
-                        sintomasFaringitis[0,7] = 1;
-                        sintomasFaringitis[0,5] = 1;
-                        break;
+                    switch (sintoma)
+                    {
+                        case 0:
+                            sintomasEnfisemaPulmonar[0,5] = 1;
+                            sintomasEPOC[0,8] = 1;
+                            break;
+                        case 1:
+                            sintomasAmigdalitis[0,8] = 1;
+                            break;
+                        case 2:
+                            sintomasGripe[0,2] = 1;
+                            sintomasResfriadoComun[0,0] = 1;
+                            sintomasRinitis[0,0] = 1;
+                            sintomasBronquitis[0,1] = 1;
+                            sintomasEnfisemaPulmonar[0,2] = 1;
+                            sintomasSinusitis[0,6] = 1;
+                            sintomasRinosinositis[0,1] = 1;
+                            break;
+                        case 3:
+                            sintomasCovid19[0,6] = 1;
+                            break;
+                        case 4:
+                            sintomasLaringitis[0,3] = 1;
+                            break;
+                        case 5:
+                            sintomasCovid19[0,5] = 1;
+                            break;
+                        case 6:
+                            sintomasAmigdalitis[0,3] = 1;
+                            sintomasFaringitis[0,6] = 1;
+                            break;
+                        case 7:
+                            sintomasBronquitis[0,3] = 1;
+                            sintomasEnfisemaPulmonar[0,0] = 1;
+                            sintomasAsma[0,4] = 1;
+                            sintomasNeumonia[0,6] = 1;
+                            sintomasEPOC[0,0] = 1;
+                            sintomasCovid19[0,10] = 1;
+                            break;
+                        case 8:
+                            sintomasFaringitis[0,3] = 1;
+                            break;
+                        case 9:
+                            sintomasGripe[0,6] = 1;
+                            sintomasResfriadoComun[0,2] = 1;
+                            sintomasRinosinositis[0,4] = 1;
+                            sintomasAmigdalitis[0,6] = 1;
+                            sintomasCancerDePulmon[0,7] = 1;
+                            sintomasSinusitis[0,4] = 1;
+                            break;
+                        case 10:
+                            sintomasResfriadoComun[0,6] = 1;
+                            sintomasRinosinositis[0,6] = 1;
+                            sintomasSinusitis[0,8] = 1;
+                            sintomasLaringitis[0,6] = 1;
+                            sintomasCovid19[0,4] = 1;
+                            break;
+                        case 11:
+                            sintomasFaringitis[0,5] = 1;
+                            break;
+                        case 12:
+                            sintomasNeumonia[0,0] = 1;
+                            sintomasCancerDePulmon[0,4] = 1;
+                            sintomasCovid19[0,8] = 1;
+                            break;
+                        case 13:
+                            sintomasCancerDePulmon[0,6] = 1;
+                            break;
+                        case 14:
+                            sintomasAmigdalitis[0,4] = 1;
+                            break;
+                        case 15:
+                            sintomasSinusitis[0,5] = 1;
+                            break;
+                        case 16:
+                            sintomasGripe[0,1] = 1;
+                            sintomasFaringitis[0,4] = 1;
+                            sintomasLaringitis[0,7] = 1;
+                            break;
+                        case 17:
+                            sintomasRinosinositis[0,0] = 1;
+                            break;
+                        case 18:
+                            sintomasGripe[0,5] = 1;
+                            sintomasBronquitis[0,5] = 1;
+                            sintomasNeumonia[0,3] = 1;
+                            break;
+                        case 19:
+                            sintomasGripe[0,7] = 1;
+                            sintomasResfriadoComun[0,5] = 1;
+                            sintomasRinitis[0,2] = 1;
+                            break;
+                        case 20:
+                            sintomasEPOC[0,3] = 1;
+                            break;
+                        case 21:
+                            sintomasAsma[0,0] = 1;
+                            sintomasCancerDePulmon[0,2] = 1;
+                            break;
+                        case 22:
+                            sintomasGripe[0,8] = 1;
+                            sintomasRinosinositis[0,3] = 1;
+                            sintomasEnfisemaPulmonar[0,3] = 1;
+                            sintomasBronquitis[0,2] = 1;
+                            sintomasNeumonia[0,1] = 1;
+                            sintomasSinusitis[0,3] = 1;
+                            sintomasEPOC[0,5] = 1;
+                            sintomasCovid19[0,2] = 1;
+                            break;
+                        case 23:
+                            sintomasGripe[0,0] = 1;
+                            sintomasResfriadoComun[0,1] = 1;
+                            sintomasRinosinositis[0,5] = 1;
+                            sintomasAmigdalitis[0,1] = 1;
+                            sintomasBronquitis[0,4] = 1;
+                            sintomasNeumonia[0,2] = 1;
+                            sintomasSinusitis[0,1] = 1;
+                            sintomasCovid19[0,0] = 1;
+                            break;
+                        case 24:
+                            sintomasAmigdalitis[0,0] = 1;
+                            break;
+                        case 25:
+                            sintomasEPOC[0,7] = 1;
+                            break;
+                        case 26:
+                            sintomasCovid19[0,9] = 1;
+                            break;
+                        case 27:
+                            sintomasEPOC[0,4] = 1;
+                            break;
+                        case 28:
+                            sintomasAmigdalitis[0,2] = 1;
+                            sintomasSinusitis[0,2] = 1;
+                            sintomasLaringitis[0,5] = 1;
+                            break;
+                        case 29:
+                            sintomasResfriadoComun[0,4] = 1;
+                            sintomasRinosinositis[0,4] = 1;
+                            sintomasCovid19[0,3] = 1;
+                            break;
+                        case 30:
+                            sintomasBronquitis[0,6] = 1;
+                            sintomasAsma[0,1] = 1;
+                            sintomasNeumonia[0,4] = 1;
+                            sintomasEPOC[0,2] = 1;
+                            break;
+                        case 31:
+                            break;
+                        case 32:
+                            sintomasRinitis[0,4] = 1;
+                            break;
+                        case 33:
+                            sintomasEnfisemaPulmonar[0,4] = 1;
+                            break;
+                        case 34:
+                            sintomasLaringitis[0,1] = 1;
+                            break;
+                        case 35:
+                            sintomasSinusitis[0,0] = 1;
+                            break;
+                        case 36:
+                            sintomasCancerDePulmon[0,5] = 1;
+                            sintomasEPOC[0,6] = 1;
+                            sintomasCovid19[0,7] = 1;
+                            break;
+                        case 37:
+                            sintomasFaringitis[0,1] = 1;
+                            break;
+                        case 38:
+                            sintomasRinitis[0,1] = 1;
+                            break;
+                        case 39:
+                            sintomasAmigdalitis[0,7] = 1;
+                            break;
+                        case 40:
+                            sintomasCancerDePulmon[0,3] = 1;
+                            sintomasLaringitis[0,0] = 1;
+                            break;
+                        case 41:
+                            sintomasFaringitis[0,6] = 1;
+                            sintomasLaringitis[0,4] = 1;
+                            break;
+                        case 42:
+                            sintomasAsma[0,2] = 1;
+                            sintomasEPOC[0,1] = 1;
+                            break;
+                        case 43:
+                            sintomasGripe[0,4] = 1;
+                            break;
+                        case 44:
+                            sintomasGripe[0,3] = 1;
+                            sintomasResfriadoComun[0,3] = 1;
+                            sintomasRinitis[0,3] = 1;
+                            sintomasBronquitis[0,0] = 1;
+                            sintomasEnfisemaPulmonar[0,1] = 1;
+                            sintomasCancerDePulmon[0,0] = 1;
+                            sintomasSinusitis[0,7] = 1;
+                            break;
+                        case 45:
+                            sintomasFaringitis[0,2] = 1;
+                            sintomasEPOC[0,9] = 1;
+                            break;
+                        case 46:
+                            sintomasCancerDePulmon[0,1] = 1;
+                            break;
+                        case 47:
+                            sintomasAsma[0,3] = 1;
+                            sintomasLaringitis[0,2] = 1;
+                            sintomasCovid19[0,1] = 1;
+                            break;
+                        case 48:
+                            sintomasNeumonia[0,5] = 1;
+                            break;
+                        case 49:
+                            sintomasFaringitis[0,7] = 1;
+                            sintomasAmigdalitis[0, 5] = 1;
+                            break;
                         
+                    }
                 }
+                
             }
         }
 

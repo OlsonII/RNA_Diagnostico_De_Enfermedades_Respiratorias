@@ -12,6 +12,8 @@ namespace Application
             var response = new ReadWeightsResponse();
             response.InputToHiddenWeights = new double[request.Inputs, 20];
             response.HiddenToOutputWeights = new double[20];
+            response.UmbralesCapaOculta = new double[20];
+            response.UmbralSalida = 0.0;
             var input = 0;
             var hidden = 0;
             string line = file.ReadLine();
@@ -31,10 +33,19 @@ namespace Application
                         }
                         input++;
                     }
-                    else
+                    else if(hidden < 20)
                     {
                         response.HiddenToOutputWeights[hidden] = double.Parse(line);
                         hidden++;
+                    }
+                    else if(hidden < 40)
+                    {
+                        response.UmbralesCapaOculta[hidden - 20] = double.Parse(line);
+                        hidden++;
+                    }
+                    else
+                    {
+                        response.UmbralSalida = Double.Parse(line);
                     }
                 }
                 line = file.ReadLine();
@@ -53,5 +64,7 @@ namespace Application
     {
         public double[,] InputToHiddenWeights { get; set; }
         public double[] HiddenToOutputWeights { get; set; }
+        public double[] UmbralesCapaOculta { get; set; }
+        public double UmbralSalida { get; set; }
     }
 }

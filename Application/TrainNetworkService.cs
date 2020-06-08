@@ -14,6 +14,8 @@ namespace Application
             {
                 HiddenToOutputWeights = network.PesosOcultaASalida,
                 InputToHiddenWeights = network.PesosEntradaAOculta,
+                UmbralesOculta = network.UmbralesCapaOculta,
+                UmbralSalida = network.UmbralesSalida[0],
                 FileName = request.FileName
             });
             return new TrainNetworkResponse(){Red = network};

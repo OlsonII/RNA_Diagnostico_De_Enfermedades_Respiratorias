@@ -18,9 +18,20 @@ namespace ApplicationTest
             var inputs = new double[,]{
                 {1, 1, 1, 1, 1, 1, 1, 1, 1}, 
                 {1,	1, 1, 1, 0, 1, 0, 0, 0}, 
-                {1,	1, 1, 0, 1, 1, 0, 1, 0}, 
-                {0, 0, 0, 0, 0, 0, 0, 0, 0}}; 
-            var outputs = new double[]{1 ,1, 1, 0};
+                {1,	1, 1, 0, 1, 1, 0, 1, 0},
+                {0, 0, 0, 1, 0, 0, 0, 1, 0},
+                {1, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 1, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 1, 1, 1, 1}}; 
+            var outputs = new double[]{1 ,1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "GripeWeights"});
             Assert.Pass();
         }
@@ -35,9 +46,18 @@ namespace ApplicationTest
                 {1,	0, 1, 0, 1, 0, 1}, 
                 {1, 1, 1, 1, 1, 0, 1},
                 {1, 1, 1, 1, 1, 1, 0},
+                {0, 0, 0, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1, 0, 0},
+                {1, 0, 1, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 1, 0, 0, 0},
+                {1, 0, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "ResfriadoComunWeights"});
             Assert.Pass();
         }
@@ -52,15 +72,24 @@ namespace ApplicationTest
                 {1, 0, 1, 1, 1}, 
                 {1, 1, 1, 0, 0},
                 {1, 1, 1, 0, 1},
-                {0, 0, 0, 0, 0}
+                {1, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {1, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1},
+                {1, 0, 1, 0, 0},
+                {0, 1, 0, 1, 0},
+                {0, 0, 0, 1, 1},
+                {0, 0, 0, 0, 0},
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "RinitisWeights"});
             Assert.Pass();
         }
         
         [Test]
-        public void TrainingNetworkRinosinitisTest()
+        public void TrainingNetworkRinosinusitisTest()
         {
             var service = new TrainNetworkService();
             var inputs = new double[,]{
@@ -69,9 +98,18 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 1, 0, 0}, 
                 {1, 1, 1, 1, 0, 0, 0},
                 {0, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 1, 0},
+                {0, 0, 0, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 1, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0},
                 {0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "RinosinositisWeights"});
             Assert.Pass();
         }
@@ -87,9 +125,17 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 1, 0, 0, 0},
                 {0, 0, 0, 1, 1, 1, 1, 1},
                 {1, 1, 1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0}
+                {0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0},
+                {1, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {1, 0, 0, 0, 0, 0, 0, 1},
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "FaringitisWeights"});
             Assert.Pass();
         }
@@ -104,9 +150,18 @@ namespace ApplicationTest
                 {0, 0, 1, 1, 1, 1, 1, 1, 1}, 
                 {0, 0, 0, 1, 1, 1, 1, 1, 1},
                 {0, 0, 0, 0, 1, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0, 0, 0, 0, 1}
+                {0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0},
+                {1, 0, 0, 1, 0, 0, 0, 0, 0},
+                {1, 1, 0, 0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 0, 1, 0, 0},
+                {0, 1, 1, 1, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "AmigdalitisWeights"});
             Assert.Pass();
         }
@@ -120,9 +175,20 @@ namespace ApplicationTest
                 {0, 1, 1, 1, 1, 1, 1}, 
                 {0, 0, 1, 1, 1, 1, 1}, 
                 {1, 0, 0, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0, 0, 0}
+                {0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0, 1, 0},
+                {0, 0, 0, 0, 0, 0, 1},
+                {0, 1, 0, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 1, 1, 0, 0},
+                {0, 1, 0, 0, 0, 1, 0},
+                {0, 0, 1, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "BronquitisWeights"});
             Assert.Pass();
         }
@@ -137,9 +203,18 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 0, 0}, 
                 {1, 0, 1, 1, 0, 1},
                 {0, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 1},
+                {0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 0, 1},
+                {1, 0, 1, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "EnfisemaPulmonarWeights"});
             Assert.Pass();
         }
@@ -154,9 +229,18 @@ namespace ApplicationTest
                 {1, 0, 1, 0, 1},
                 {0, 1, 1, 1, 1},
                 {0, 0, 1, 1, 1},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0},
+                {1, 0, 1, 0, 0},
+                {0, 1, 0, 0, 1},
+                {1, 0, 1, 0, 0},
+                {0, 1, 0, 0, 1},
+                {0, 0, 1, 1, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "AsmaWeights"});
             Assert.Pass();
         }
@@ -166,13 +250,23 @@ namespace ApplicationTest
         {
             var service = new TrainNetworkService();
             var inputs = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1}, 
-                {1, 1, 1, 1, 1, 0, 1, 1}, 
-                {1, 1, 1, 1, 1, 1, 0, 1}, 
-                {1, 1, 1, 0, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0, 0, 0, 0}
+                {1, 1, 1, 1, 1, 1, 1}, 
+                {1, 1, 1, 1, 0, 1, 1}, 
+                {1, 1, 1, 1, 1, 0, 1}, 
+                {1, 1, 0, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0, 1, 0},
+                {0, 1, 0, 0, 0, 0, 0},
+                {1, 0, 0, 1, 0, 1, 0},
+                {0, 1, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0},
+                {0, 1, 0, 1, 0, 1, 0},
+                {0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "NeumoniaWeights"});
             Assert.Pass();
         }
@@ -187,9 +281,18 @@ namespace ApplicationTest
                 {1, 0, 0, 1, 1, 1, 1, 1}, 
                 {1, 0, 1, 1, 1, 1, 0, 1},
                 {1, 0, 1, 1, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0, 0, 0, 1}
+                {0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 1, 0, 0, 0, 0, 1, 0},
+                {0, 0, 1, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 1, 0},
+                {0, 1, 0, 1, 0, 1, 0, 1},
+                {1, 0, 0, 0, 0, 0, 1, 0},
+                {0, 1, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "CancerDePulmonWeights"});
             Assert.Pass();
         }
@@ -203,9 +306,19 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 1, 1, 1, 1, 0}, 
                 {1, 1, 1, 1, 1, 1, 1, 0, 0},
                 {1, 1, 1, 1, 1, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 0, 0, 1, 0},
+                {0, 1, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 1, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0, 0, 1},
+                {1, 1, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 1, 0},
+                {0, 0, 1, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "SinusitisWeights"});
             Assert.Pass();
         }
@@ -221,9 +334,17 @@ namespace ApplicationTest
                 {1, 0, 1, 1, 0, 1, 1, 1},
                 {1, 0, 1, 1, 1, 1, 0, 1},
                 {1, 0, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 1, 0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1, 0, 0, 1},
+                {0, 0, 1, 0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0},
+                {1, 0, 1, 0, 0, 1, 0, 0},
+                {0, 1, 0, 1, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "LaringitisWeights"});
             Assert.Pass();
         }
@@ -240,9 +361,16 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 1, 0, 0, 0, 1, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 1, 0, 1, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+                {0, 0, 1, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0, 1},
+                {0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "EPOCWeights"});
             Assert.Pass();
         }
@@ -259,9 +387,16 @@ namespace ApplicationTest
                 {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1},
+                {0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0},
+                {1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+                {1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+                {1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
             }; 
-            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 1, 0};
+            var outputs = new double[]{1 ,1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0};
             service.Ejecute(new TrainNetworkRequest(){HiddenNodesNumber = 20, InputsValues = inputs, OutputsValues = outputs, FileName = "Covid19Weights"});
             Assert.Pass();
         }

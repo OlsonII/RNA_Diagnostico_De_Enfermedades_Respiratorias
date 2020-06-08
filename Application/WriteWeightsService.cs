@@ -26,6 +26,18 @@ namespace Application
                 fileToWrite.WriteLine(request.HiddenToOutputWeights[hidden].ToString());
                 fileToWrite.WriteLine("---");
             }
+            fileToWrite.WriteLine("---");
+            fileToWrite.WriteLine("---");
+            fileToWrite.WriteLine("---");
+            for (int hidden = 0; hidden < request.HiddenToOutputWeights.Length; hidden++)
+            {
+                fileToWrite.WriteLine(request.UmbralesOculta[hidden].ToString());
+                fileToWrite.WriteLine("---");
+            }
+            fileToWrite.WriteLine("---");
+            fileToWrite.WriteLine("---");
+            fileToWrite.WriteLine("---");
+            fileToWrite.WriteLine(request.UmbralSalida.ToString());
             fileToWrite.Close();
             return null;
         }
@@ -35,6 +47,8 @@ namespace Application
     {
         public double[,] InputToHiddenWeights { get; set; }
         public double[] HiddenToOutputWeights { get; set; }
+        public double[] UmbralesOculta { get; set; }
+        public double UmbralSalida { get; set; }
         public string FileName { get; set; }
     }
 

@@ -69,7 +69,7 @@ namespace ApplicationTest
         {
             var service = new DiagnosticoAmigdalitisService();
             var request = new DiagnosticoAmigdalitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1, 1}}
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -113,7 +113,7 @@ namespace ApplicationTest
         {
             var service = new DiagnosticoNeumoniaService();
             var request = new DiagnosticoNeumoniaRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1}}
+                {1, 1, 1, 1, 1, 1, 1}}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");

@@ -11,6 +11,8 @@ namespace Application
             var weights = new ReadWeightsService().Ejecute(new ReadWeightsRequest(){Inputs = network.Entradas, FileName = FileName});
             network.PesosEntradaAOculta = weights.InputToHiddenWeights;
             network.PesosOcultaASalida = weights.HiddenToOutputWeights;
+            network.UmbralesCapaOculta = weights.UmbralesCapaOculta;
+            network.UmbralesSalida[0] = weights.UmbralSalida;
             network.FowardPass(0);
             if (network.SalidaRedondeada == 1)
             {
