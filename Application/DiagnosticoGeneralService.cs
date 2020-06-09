@@ -252,7 +252,6 @@ namespace Application
                             sintomasFaringitis[7] = 1;
                             sintomasAmigdalitis[5] = 1;
                             break;
-                        
                     }
                 }
                 

@@ -9,13 +9,15 @@ namespace ApplicationTest
         public void Setup()
         {}
         
-        /*[Test]
+        [Test]
         public void DiagnosticoNetworkGripe()
         {
-            var service = new DiagnosticoGripeService();
-            var request = new DiagnosticoGripeRequest(){InputsValues = new double[,]{
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "GripeWeights",
+                InputsValues = new double[]
                 {1, 1, 1, 1, 1, 1, 1, 1, 1}}
-            };
+            ;
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
         }
@@ -23,9 +25,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkResfriadoComun()
         {
-            var service = new DiagnosticoResfriadoComunService();
-            var request = new DiagnosticoResfriadoComunRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "ResfriadoComunWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -34,9 +38,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkRinitis()
         {
-            var service = new DiagnosticoRinitisService();
-            var request = new DiagnosticoRinitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "RinitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -45,9 +51,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkRinosinositis()
         {
-            var service = new DiagnosticoRinosinositisService();
-            var request = new DiagnosticoRinosinositisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "RinosinositisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -56,9 +64,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkFaringitis()
         {
-            var service = new DiagnosticoFaringitisService();
-            var request = new DiagnosticoFaringitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "FaringitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -67,9 +77,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkAmigdalitis()
         {
-            var service = new DiagnosticoAmigdalitisService();
-            var request = new DiagnosticoAmigdalitisRequest(){InputsValues = new double[]{
-                0, 0, 0, 0, 0, 0, 0, 0, 0}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "AmigdalitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -78,9 +90,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkBronquitis()
         {
-            var service = new DiagnosticoBronquitisService();
-            var request = new DiagnosticoBronquitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "BronquitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -89,9 +103,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkEnfisemaPulmonar()
         {
-            var service = new DiagnosticoEnfisemaPulmonarService();
-            var request = new DiagnosticoEnfisemaPulmonarRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "EnfisemaPulmonarWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -100,9 +116,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkAsma()
         {
-            var service = new DiagnosticoAsmaService();
-            var request = new DiagnosticoAsmaRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "AsmaWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -111,9 +129,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkNeumonia()
         {
-            var service = new DiagnosticoNeumoniaService();
-            var request = new DiagnosticoNeumoniaRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "NeumoniaWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -122,9 +142,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkCancerDePulmon()
         {
-            var service = new DiagnosticoCancerDePulmonService();
-            var request = new DiagnosticoCancerDePulmonRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "CancerDePulmonWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -133,9 +155,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkSinusitis()
         {
-            var service = new DiagnosticoSinusitisService();
-            var request = new DiagnosticoSinusitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "SinusitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -144,9 +168,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkLaringitis()
         {
-            var service = new DiagnosticoLaringitisService();
-            var request = new DiagnosticoLaringitisRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "LaringitisWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -155,9 +181,11 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkEPOC()
         {
-            var service = new DiagnosticoEPOCService();
-            var request = new DiagnosticoEPOCRequest(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "EPOCWeights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
@@ -166,12 +194,14 @@ namespace ApplicationTest
         [Test]
         public void DiagnosticoNetworkCovid19()
         {
-            var service = new DiagnosticoCovid19Service();
-            var request = new DiagnosticoCovid19Request(){InputsValues = new double[,]{
-                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}
+            var service = new DiagnosticoService();
+            var request = new DiagnosticoRequest(){
+                NombreDelArchivo = "Covid19Weights",
+                InputsValues = new double[]
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
             var response = service.Ejecute(request);
             Assert.AreEqual(response.Diagnostico, "Positivo");
-        }*/
+        }
     }
 }

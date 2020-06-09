@@ -10,7 +10,7 @@ namespace Domain
         public const int Salidas = 1;
         public Neurona[] NeuronasOcultas = new Neurona[20];
         public Neurona NeuronaDeSalida;
-        public const int Iteraciones = 2000;
+        public const int Iteraciones = 600;
         public bool EstaEntrenada = false;
 
         public Red(double[][] valoresEntradas, double[] valoresSalida)
@@ -30,6 +30,12 @@ namespace Domain
 
         public Red(double[] valoresEntradas)
         {
+            ValoresEntradas = new double[1][];
+            Entradas = valoresEntradas.Length;
+            for (var ocultas = 0; ocultas < 20; ocultas++)
+            {
+                NeuronasOcultas[ocultas] = new Neurona(valoresEntradas.Length);
+            }
             ValoresEntradas[0] = valoresEntradas;
         }
 

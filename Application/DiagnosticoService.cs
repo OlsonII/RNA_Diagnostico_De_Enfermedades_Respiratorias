@@ -19,7 +19,8 @@ namespace Application
                     }
                     red.NeuronasOcultas[i].Umbral = reader.UmbralesCapaOculta[i];
                 }
-                
+                red.NeuronaDeSalida = new Neurona();
+                red.NeuronaDeSalida.Entradas = new double[20];
                 red.NeuronaDeSalida.Pesos = reader.PesosSalida;
                 red.NeuronaDeSalida.Umbral = reader.UmbralSalida;
                 red.EstaEntrenada = true;
